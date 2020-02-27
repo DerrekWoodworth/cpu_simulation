@@ -15,7 +15,21 @@ public class MultilevelFeedbackScheduler implements CPUSchedulerInterface {
         return new Process[0];
     }
 
-    public void schedule() {
+    public void firstQueue() {
 
     }
+    
+    public void secondQueue() {
+    	
+    	
+    }
+    
+    public void baseQueue() {
+    	
+    }
+
+	public void schedule() {
+		// TODO Auto-generated method stub
+		
+	}
 }
