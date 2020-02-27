@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import interfaces.CPUSchedulerInterface;
 
-public class MultilevelFeedbackScheduler implements CPUSchedulerInterface {
+public class MultilevelFeedbackScheduler extends CpuScheduler {
 	
 	ArrayList <Process> myProcesses = new ArrayList <Process>();
 	

@@ -1,34 +1,40 @@
+
 package implementations;
 import java.util.ArrayList;
 
-import interfaces.CPUSchedulerInterface;
+import interfaces.CpuScheduler;
+import objects.OurProcess;
 
-public class RoundRobin implements CPUSchedulerInterface {
-	ArrayList<Process> myProcesses = new ArrayList<Process>();
+public class RoundRobin extends CpuScheduler {
+	private ArrayList<OurProcess> myProcesses = new ArrayList<>();
 
-    public RoundRobin(ArrayList<Process> myProcesses) {
+    public RoundRobin() {
 		super();
-		this.myProcesses = myProcesses;
+		this.myProcesses = new ArrayList<>();
 	}
 
-	public void addProcess(Process toAdd) 
-    {
-    	myProcesses.add(toAdd);
+    @Override
+    public void addProcess(OurProcess toAdd) {
+        myProcesses.add(toAdd);
     }
 
-    public Process getNextProcess()
+    public OurProcess getNextProcess()
     {
       return myProcesses.get(0);
-      
     }
 
     public void schedule()
     {
+        removeIfFinished();
     	myProcesses.add(myProcesses.remove(0));
     }
 
-	public Process[] getAllFinishedProcesses() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public void removeIfFinished() {
+        if(myProcesses.size() > 0 && myProcesses.get(0).getHasLeft() == 0) {
+            OurProcess removed = myProcesses.get(0);
+            myProcesses.remove(0);
+            addToFinished(removed);
+        }
+
+    }
 }
