@@ -1,5 +1,7 @@
 package interfaces;
 
+import objects.OurProcess;
+
 public interface ProcessGeneratorInterface {
-    Process generateProcess();
+    OurProcess generateProcess();
 }

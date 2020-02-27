@@ -1,18 +1,20 @@
 package implementations;
 
-import interfaces.CPUSchedulerInterface;
+import interfaces.CpuScheduler;
+import objects.OurProcess;
 
-public class MultilevelFeedbackScheduler implements CPUSchedulerInterface {
-    public void addProcess(Process toAdd) {
+import java.util.Map;
+
+public class MultilevelFeedbackScheduler extends CpuScheduler {
+    public MultilevelFeedbackScheduler() {
+    }
+
+    public void addProcess(OurProcess toAdd) {
 
     }
 
-    public Process getNextProcess() {
+    public OurProcess getNextProcess() {
         return null;
-    }
-
-    public Process[] getAllFinishedProcesses() {
-        return new Process[0];
     }
 
     public void schedule() {

@@ -1,18 +1,15 @@
 package implementations;
 
-import interfaces.CPUSchedulerInterface;
+import interfaces.CpuScheduler;
+import objects.OurProcess;
 
-public class RoundRobin implements CPUSchedulerInterface {
-    public void addProcess(Process toAdd) {
+public class RoundRobin extends CpuScheduler {
+    public void addProcess(OurProcess toAdd) {
 
     }
 
-    public Process getNextProcess() {
+    public OurProcess getNextProcess() {
         return null;
-    }
-
-    public Process[] getAllFinishedProcesses() {
-        return new Process[0];
     }
 
     public void schedule() {
