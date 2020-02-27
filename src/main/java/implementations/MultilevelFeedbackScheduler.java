@@ -1,23 +1,57 @@
 package implementations;
 
-import interfaces.CpuScheduler;
-import objects.OurProcess;
+import java.util.ArrayList;
 
-import java.util.Map;
+import interfaces.CPUSchedulerInterface;
 
 public class MultilevelFeedbackScheduler extends CpuScheduler {
-    public MultilevelFeedbackScheduler() {
+	
+	ArrayList <Process> myProcesses = new ArrayList <Process>();
+	
+    public MultilevelFeedbackScheduler(ArrayList<Process> myProcesses) {
+		super();
+		this.myProcesses = myProcesses;
+	}
+
+	public void addProcess(Process toAdd) {
+    	myProcesses.add(toAdd);
     }
 
-    public void addProcess(OurProcess toAdd) {
-
+    public Process getNextProcessFirst() {
+    	return myProcesses.get(0);
+    }
+    
+    public Process getNextProcessSecond() {
+    	return myProcesses.get(0);
+    }
+    
+    public Process getNextProcessBase() {
+    	return myProcesses.get(0);
     }
 
-    public OurProcess getNextProcess() {
-        return null;
+    public Process[] getAllFinishedProcesses() {
+    	return new Process[0];
     }
 
-    public void schedule() {
-
+    public void firstQueue() {
+    	myProcesses.add(myProcesses.remove(0));
     }
+    
+    public void secondQueue() {
+    	myProcesses.add(myProcesses.remove(0));
+    }
+    
+    public void baseQueue() {
+    	myProcesses.add(myProcesses.remove(0));
+    }
+
+	public Process getNextProcess() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void schedule() {
+		// TODO Auto-generated method stub
+		
+	}
 }
