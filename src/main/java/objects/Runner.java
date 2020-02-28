@@ -24,15 +24,21 @@ public class Runner {
     }
     public void step() {
         cpuScheduler.schedule();
-        OurProcess currentlyRunning = cpuScheduler.getNextProcess();
-        currentlyRunning.runForOneTick(currentTime);
-
-        currentTime++;
+        cpuScheduler.tick();
+        OurProcess ourobj =  cpuScheduler.getCurrentProcess();
+        if(ourobj == null)
+            System.out.println("Yikers");
+        ourobj.runForOneTick(currentTime++);
     }
 
     public void printFinsihedProcessStats(){
         cpuScheduler.getFinishedProcesses().stream()
                 .forEach(System.out::println);
+    }
+
+    public void runUntilDone() {
+        while(cpuScheduler.hasMore())
+            step();
     }
 
 }

@@ -48,9 +48,11 @@ public class OurProcess {
      * Returns true if the process needs more time, false if it is finished
      */
     public boolean runForOneTick(int time) {
+        //System.out.println("RUnning process: " + id + ", with " + hasLeft +" left");
         if(start == -1) {
             start = time;
-        } else if (hasLeft == 1) {
+        }
+        if (hasLeft == 1) {
             end = time + 1;
             // Generate the Waiting time and the turnAround time
             waitingTime = end - start;
@@ -60,9 +62,9 @@ public class OurProcess {
     }
 
     public String toString() {
-       List<Integer> fields = Arrays.asList(id, added, start, end, waitingTime, turnAroundTime);
+       List<Integer> fields = Arrays.asList(id, burstTime, added, start, end, waitingTime, turnAroundTime);
        List<String> fieldsAsString = fields.stream().map(String::valueOf).collect(Collectors.toList());
-        return String.join(" ,", fieldsAsString);
+        return String.join(",", fieldsAsString);
     }
 
 }

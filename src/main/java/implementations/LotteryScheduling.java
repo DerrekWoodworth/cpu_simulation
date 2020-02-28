@@ -23,7 +23,7 @@ public class LotteryScheduling extends CpuScheduler {
         lotteryDraw.add(toAdd);
     }
 
-    public OurProcess getNextProcess() {
+    public OurProcess getCurrentProcess() {
         if (luckyProcess.getHasLeft() == 0)
             schedule();
         return luckyProcess;
@@ -45,6 +45,11 @@ public class LotteryScheduling extends CpuScheduler {
         // Add all of the processes to the lottery
         listOfProecess.stream()
                 .forEach(lotteryDraw::add);
+    }
+
+    @Override
+    public boolean hasMore() {
+        return false;
     }
 
     public void removeIfFinished(OurProcess process) {

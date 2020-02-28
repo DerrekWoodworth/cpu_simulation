@@ -14,7 +14,7 @@ public class ProcessGenerator implements ProcessGeneratorInterface {
     @Override
     public OurProcess generateProcess() {
         // Randomly generate burst time
-        int burstTime = random.nextInt(11);
+        int burstTime = random.nextInt(10) + 1;
         return new OurProcess(++lastId, burstTime);
 
     }
